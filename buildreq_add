@@ -1,2 +1,9 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
+perl(Class::Inspector)
+perl(Class::Singleton)
+perl(DateTime::Format::W3CDTF)
+perl(DateTime::TimeZone)
+perl(File::ShareDir)
+perl(Package::Stash)
+perl(Params::Validate)

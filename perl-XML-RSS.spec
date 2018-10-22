@@ -4,30 +4,58 @@
 #
 Name     : perl-XML-RSS
 Version  : 1.60
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-RSS-1.60.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-RSS-1.60.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libx/libxml-feed-perl/libxml-feed-perl_0.53+dfsg-1.debian.tar.xz
 Summary  : 'creates and updates RSS files'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0 GPL-2.0
-Requires: perl-XML-RSS-license
-Requires: perl-XML-RSS-man
-Requires: perl(DateTime::Format::Mail)
-Requires: perl(DateTime::Format::W3CDTF)
-Requires: perl(HTML::Entities)
-Requires: perl(Module::Build)
-Requires: perl(XML::Parser)
+Requires: perl-XML-RSS-license = %{version}-%{release}
+BuildRequires : buildreq-cpan
+BuildRequires : perl(B::Hooks::EndOfScope)
+BuildRequires : perl(Class::Data::Inheritable)
+BuildRequires : perl(Class::Inspector)
+BuildRequires : perl(Class::Singleton)
+BuildRequires : perl(DateTime)
 BuildRequires : perl(DateTime::Format::Mail)
 BuildRequires : perl(DateTime::Format::W3CDTF)
+BuildRequires : perl(DateTime::Locale)
+BuildRequires : perl(DateTime::TimeZone)
+BuildRequires : perl(Devel::StackTrace)
+BuildRequires : perl(Eval::Closure)
+BuildRequires : perl(Exception::Class)
+BuildRequires : perl(File::ShareDir)
 BuildRequires : perl(HTML::Entities)
-BuildRequires : perl(Module::Build)
+BuildRequires : perl(MRO::Compat)
+BuildRequires : perl(Module::Implementation)
+BuildRequires : perl(Module::Runtime)
+BuildRequires : perl(Package::Stash)
+BuildRequires : perl(Params::Validate)
+BuildRequires : perl(Params::ValidationCompiler)
+BuildRequires : perl(Role::Tiny)
+BuildRequires : perl(Specio::Exporter)
+BuildRequires : perl(Sub::Exporter::Progressive)
+BuildRequires : perl(Sub::Identify)
+BuildRequires : perl(Try::Tiny)
+BuildRequires : perl(Variable::Magic)
 BuildRequires : perl(XML::Parser)
+BuildRequires : perl(namespace::autoclean)
+BuildRequires : perl(namespace::clean)
 
 %description
 All rights reserved.
 This package is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
+
+%package dev
+Summary: dev components for the perl-XML-RSS package.
+Group: Development
+Provides: perl-XML-RSS-devel = %{version}-%{release}
+
+%description dev
+dev components for the perl-XML-RSS package.
+
 
 %package license
 Summary: license components for the perl-XML-RSS package.
@@ -37,19 +65,11 @@ Group: Default
 license components for the perl-XML-RSS package.
 
 
-%package man
-Summary: man components for the perl-XML-RSS package.
-Group: Default
-
-%description man
-man components for the perl-XML-RSS package.
-
-
 %prep
-tar -xf %{SOURCE1}
-cd ..
 %setup -q -n XML-RSS-1.60
-mkdir -p %{_topdir}/BUILD/XML-RSS-1.60/deblicense/
+cd ..
+%setup -q -T -D -n XML-RSS-1.60 -b 1
+mkdir -p deblicense/
 mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/XML-RSS-1.60/deblicense/
 
 %build
@@ -74,13 +94,13 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-XML-RSS
-cp LICENSE %{buildroot}/usr/share/doc/perl-XML-RSS/LICENSE
-cp deblicense/copyright %{buildroot}/usr/share/doc/perl-XML-RSS/deblicense_copyright
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-XML-RSS
+cp LICENSE %{buildroot}/usr/share/package-licenses/perl-XML-RSS/LICENSE
+cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-XML-RSS/deblicense_copyright
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -89,21 +109,16 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/XML/RSS.pm
-/usr/lib/perl5/site_perl/5.26.1/XML/RSS/Private/Output/Base.pm
-/usr/lib/perl5/site_perl/5.26.1/XML/RSS/Private/Output/Roles/ImageDims.pm
-/usr/lib/perl5/site_perl/5.26.1/XML/RSS/Private/Output/Roles/ModulesElems.pm
-/usr/lib/perl5/site_perl/5.26.1/XML/RSS/Private/Output/V0_9.pm
-/usr/lib/perl5/site_perl/5.26.1/XML/RSS/Private/Output/V0_91.pm
-/usr/lib/perl5/site_perl/5.26.1/XML/RSS/Private/Output/V1_0.pm
-/usr/lib/perl5/site_perl/5.26.1/XML/RSS/Private/Output/V2_0.pm
+/usr/lib/perl5/vendor_perl/5.26.1/XML/RSS.pm
+/usr/lib/perl5/vendor_perl/5.26.1/XML/RSS/Private/Output/Base.pm
+/usr/lib/perl5/vendor_perl/5.26.1/XML/RSS/Private/Output/Roles/ImageDims.pm
+/usr/lib/perl5/vendor_perl/5.26.1/XML/RSS/Private/Output/Roles/ModulesElems.pm
+/usr/lib/perl5/vendor_perl/5.26.1/XML/RSS/Private/Output/V0_9.pm
+/usr/lib/perl5/vendor_perl/5.26.1/XML/RSS/Private/Output/V0_91.pm
+/usr/lib/perl5/vendor_perl/5.26.1/XML/RSS/Private/Output/V1_0.pm
+/usr/lib/perl5/vendor_perl/5.26.1/XML/RSS/Private/Output/V2_0.pm
 
-%files license
-%defattr(-,root,root,-)
-/usr/share/doc/perl-XML-RSS/LICENSE
-/usr/share/doc/perl-XML-RSS/deblicense_copyright
-
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/XML::RSS.3
 /usr/share/man/man3/XML::RSS::Private::Output::Base.3
@@ -113,3 +128,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/XML::RSS::Private::Output::V0_91.3
 /usr/share/man/man3/XML::RSS::Private::Output::V1_0.3
 /usr/share/man/man3/XML::RSS::Private::Output::V2_0.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-XML-RSS/LICENSE
+/usr/share/package-licenses/perl-XML-RSS/deblicense_copyright
