@@ -4,7 +4,7 @@
 #
 Name     : perl-XML-RSS
 Version  : 1.60
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-RSS-1.60.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-RSS-1.60.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libx/libxml-feed-perl/libxml-feed-perl_0.53+dfsg-1.debian.tar.xz
