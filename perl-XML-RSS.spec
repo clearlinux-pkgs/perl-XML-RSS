@@ -109,14 +109,14 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.1/XML/RSS.pm
-/usr/lib/perl5/vendor_perl/5.28.1/XML/RSS/Private/Output/Base.pm
-/usr/lib/perl5/vendor_perl/5.28.1/XML/RSS/Private/Output/Roles/ImageDims.pm
-/usr/lib/perl5/vendor_perl/5.28.1/XML/RSS/Private/Output/Roles/ModulesElems.pm
-/usr/lib/perl5/vendor_perl/5.28.1/XML/RSS/Private/Output/V0_9.pm
-/usr/lib/perl5/vendor_perl/5.28.1/XML/RSS/Private/Output/V0_91.pm
-/usr/lib/perl5/vendor_perl/5.28.1/XML/RSS/Private/Output/V1_0.pm
-/usr/lib/perl5/vendor_perl/5.28.1/XML/RSS/Private/Output/V2_0.pm
+/usr/lib/perl5/vendor_perl/5.28.2/XML/RSS.pm
+/usr/lib/perl5/vendor_perl/5.28.2/XML/RSS/Private/Output/Base.pm
+/usr/lib/perl5/vendor_perl/5.28.2/XML/RSS/Private/Output/Roles/ImageDims.pm
+/usr/lib/perl5/vendor_perl/5.28.2/XML/RSS/Private/Output/Roles/ModulesElems.pm
+/usr/lib/perl5/vendor_perl/5.28.2/XML/RSS/Private/Output/V0_9.pm
+/usr/lib/perl5/vendor_perl/5.28.2/XML/RSS/Private/Output/V0_91.pm
+/usr/lib/perl5/vendor_perl/5.28.2/XML/RSS/Private/Output/V1_0.pm
+/usr/lib/perl5/vendor_perl/5.28.2/XML/RSS/Private/Output/V2_0.pm
 
 %files dev
 %defattr(-,root,root,-)
