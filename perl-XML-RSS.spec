@@ -4,11 +4,11 @@
 #
 Name     : perl-XML-RSS
 Version  : 1.60
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-RSS-1.60.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-RSS-1.60.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libx/libxml-feed-perl/libxml-feed-perl_0.53+dfsg-1.debian.tar.xz
-Summary  : 'creates and updates RSS files'
+Summary  : Parse or create Rich Site Summaries (RSS)
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0 GPL-2.0
 Requires: perl-XML-RSS-license = %{version}-%{release}
@@ -52,6 +52,7 @@ modify it under the same terms as Perl itself.
 Summary: dev components for the perl-XML-RSS package.
 Group: Development
 Provides: perl-XML-RSS-devel = %{version}-%{release}
+Requires: perl-XML-RSS = %{version}-%{release}
 
 %description dev
 dev components for the perl-XML-RSS package.
@@ -70,7 +71,7 @@ license components for the perl-XML-RSS package.
 cd ..
 %setup -q -T -D -n XML-RSS-1.60 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/XML-RSS-1.60/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/XML-RSS-1.60/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
