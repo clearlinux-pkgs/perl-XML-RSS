@@ -4,7 +4,7 @@
 #
 Name     : perl-XML-RSS
 Version  : 1.62
-Release  : 19
+Release  : 20
 URL      : https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-RSS-1.62.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-RSS-1.62.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libx/libxml-feed-perl/libxml-feed-perl_0.53+dfsg-1.debian.tar.xz
@@ -120,11 +120,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/XML/RSS.pm
-/usr/lib/perl5/vendor_perl/5.30.3/XML/RSS/Private/Output/Base.pm
-/usr/lib/perl5/vendor_perl/5.30.3/XML/RSS/Private/Output/Roles/ImageDims.pm
-/usr/lib/perl5/vendor_perl/5.30.3/XML/RSS/Private/Output/Roles/ModulesElems.pm
-/usr/lib/perl5/vendor_perl/5.30.3/XML/RSS/Private/Output/V0_9.pm
-/usr/lib/perl5/vendor_perl/5.30.3/XML/RSS/Private/Output/V0_91.pm
-/usr/lib/perl5/vendor_perl/5.30.3/XML/RSS/Private/Output/V1_0.pm
-/usr/lib/perl5/vendor_perl/5.30.3/XML/RSS/Private/Output/V2_0.pm
+/usr/lib/perl5/vendor_perl/5.32.1/XML/RSS.pm
+/usr/lib/perl5/vendor_perl/5.32.1/XML/RSS/Private/Output/Base.pm
+/usr/lib/perl5/vendor_perl/5.32.1/XML/RSS/Private/Output/Roles/ImageDims.pm
+/usr/lib/perl5/vendor_perl/5.32.1/XML/RSS/Private/Output/Roles/ModulesElems.pm
+/usr/lib/perl5/vendor_perl/5.32.1/XML/RSS/Private/Output/V0_9.pm
+/usr/lib/perl5/vendor_perl/5.32.1/XML/RSS/Private/Output/V0_91.pm
+/usr/lib/perl5/vendor_perl/5.32.1/XML/RSS/Private/Output/V1_0.pm
+/usr/lib/perl5/vendor_perl/5.32.1/XML/RSS/Private/Output/V2_0.pm
