@@ -1,3 +1,4 @@
 1.62
 perl(DateTime::Format::Mail)
+perl(HTML::Entities)
 perl(XML::Parser)
