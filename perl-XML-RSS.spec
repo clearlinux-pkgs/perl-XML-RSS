@@ -7,7 +7,7 @@
 #
 Name     : perl-XML-RSS
 Version  : 1.63
-Release  : 28
+Release  : 29
 URL      : https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-RSS-1.63.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-RSS-1.63.tar.gz
 Summary  : 'creates and updates RSS files'
